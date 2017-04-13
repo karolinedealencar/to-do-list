@@ -1,3 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+main {
+  font-family: 'Quicksand', sans-serif;
+  text-align: center;
+
+}
+
+.title {
+  font-size: 3em;
+}
+
+.addItem-label {
+  font-size: 1.2em;
+}
+
+.addItem-input {
+  padding: 4px 20px;
+  border: 1px solid #3F213D;
+
+}
+
+.addItem-btn {
+  padding: 4px 10px;
+  background: none;
+  border: 1px solid #3F213D;
+}
+
+.todoList {
+  padding: 0px;
+  list-style: none;
+}
+
+.todoList li {
+  margin-top: 20px;
+}
+
+.todoList li label{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.todoList li button {
+  font-size: 18px;
+  color: #A05258;
+  font-weight: bold;
+  background: none;
+  border: none;
+}
+
 input[type="checkbox"]:checked + label {
   text-decoration: line-through;
 }
