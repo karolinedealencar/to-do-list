@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +8,21 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <main>
-    <h1 class="title">To-do List</h1>
-    <label for="addItem" class="addItem-label">Coloque a tarefa aqui:</label>
-    <input id="addItem" class="addItem-input" data-js="inputItem" type="text">
-    <button data-js="addButton" class="addItem-btn" type="submit">Add</button>
+  <h1 class="title">To-do List</h1>
 
-    <ul class="todoList" data-js="todoList">
+  <form>
+    <label>
+      Coloque a tarefa aqui:
+      <input data-js="task-input" type="text">
+    </label>
+    <button data-js="btn" type="button">
+      Add
+    </button>
+  </form>
 
-    </ul>
-
-  </main>
-<script src="js/main.js"></script>
+  <ul data-js="task-list">
+  </ul>
+  
+  <script src="js/main.js"></script>
 </body>
 </html>
