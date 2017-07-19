@@ -15,17 +15,18 @@ $input.addEventListener('keypress', function(e) {
 function createElement() {
   const task = $input.value
   const markUp = `
-    <li>
-     <input type="checkbox">
+    <li class="tasks__item">
       <label>
-        ${task}
+        <input type="checkbox">
+          <p class="task__p"> ${task} </p>
+        <button class="btn btn--remove" data-js="removeBtn" type="button"> X </button>
       </label>
-      <button data-js="removeBtn" type="button"> X </button>
     </li>
   `
   $list.insertAdjacentHTML('beforeend', markUp)
 
   $input.value = ''
+
 
   // Looping through all remove Button and listening to click event.
 
