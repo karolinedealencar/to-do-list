@@ -1,53 +1,61 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand');
 
-main {
+body {
   font-family: 'Quicksand', sans-serif;
   text-align: center;
-
 }
 
-.title {
+.header__title {
   font-size: 3em;
+  margin-bottom: 0;
 }
 
-.addItem-label {
-  font-size: 1.2em;
+.header__description {
+  margin-top: 0;
 }
 
-.addItem-input {
-  padding: 4px 20px;
-  border: 1px solid #3F213D;
-
+.tasks {
+  margin-top: 2em;
 }
 
-.addItem-btn {
-  padding: 4px 10px;
-  background: none;
-  border: 1px solid #3F213D;
-}
-
-.todoList {
-  padding: 0px;
+.tasks__list {
+  padding: 0;
   list-style: none;
 }
 
-.todoList li {
-  margin-top: 20px;
+.tasks__item {
+  margin-top: .6em;
 }
 
-.todoList li label{
-  margin-left: 10px;
-  margin-right: 10px;
+.task__p {
+  display: inline
 }
 
-.todoList li button {
-  font-size: 18px;
-  color: #A05258;
-  font-weight: bold;
+.btn {
   background: none;
+  border: 1px solid black;
+}
+
+.btn--remove {
+  color: #F64744;
   border: none;
 }
 
-input[type="checkbox"]:checked + label {
+input[type="checkbox"]:checked + .task__p {
   text-decoration: line-through;
+}
+
+
+@media (max-width: 420px) {
+
+  .tasks__label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .6em;
+  }
+
+  .tasks__input {
+    margin-top: .6em;
+  }
+
 }
