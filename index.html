@@ -8,22 +8,22 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <h1 class="title">To-do List</h1>
-    <p>
+  <header class="header">
+    <h1 class="header__title">To-do List</h1>
+    <p class="header__description">
       A simple to-do list with JavaScript.
     </p>
   </header>
-  <main>
-    <label>
+  <main class="tasks">
+    <label class="tasks__label">
       Put your tasks here:
-      <input data-js="task-input" type="text">
+      <input class="tasks__input" data-js="task-input" type="text">
     </label>
-    <button data-js="btn" type="button">
+    <button class="btn" data-js="btn" type="button">
       Add
     </button>
 
-    <ul data-js="task-list">
+    <ul class="tasks__list" data-js="task-list">
     </ul>
   </main>
 
