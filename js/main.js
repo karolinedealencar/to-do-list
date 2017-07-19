@@ -1,49 +1,39 @@
+const queryS = (selector) => document.querySelector(selector)
 
+const $input = queryS('[data-js="task-input"]'); // Task Input
+const $btn = queryS('[data-js="btn"]'); // Add Button
+const $list = queryS('[data-js="task-list"]'); // Task List
 
-  var $input = document.querySelector('[data-js="inputItem"]'); // Input para colocar a tarefa
-  var $addButton = document.querySelector('[data-js="addButton"]'); // Botão de adicionar
-  var $list = document.querySelector('[data-js="todoList"]'); // Lista ToDO
+$btn.addEventListener('click', createElement)
 
+$input.addEventListener('keypress', function(e) {
+    if (e.keyCode == 13) {
+      createElement();
+    }
+})
 
-  $addButton.addEventListener('click', function() {
-    createElement();
-  })
-  $input.addEventListener('keypress', function(e) {
-      if (e.keyCode == 13) {
-        createElement();
-      }
-  })
+function createElement() {
+  const task = $input.value
+  const markUp = `
+    <li>
+     <input type="checkbox">
+      <label>
+        ${task}
+      </label>
+      <button data-js="removeBtn" type="button"> X </button>
+    </li>
+  `
+  $list.insertAdjacentHTML('beforeend', markUp)
 
-  function createElement() {
-    var $listItem = document.createElement('li') // Criando elemento
-    $listItem.setAttribute('data-js', 'listItem') //Setando atributo data-js
+  $input.value = ''
 
-    var $label = document.createElement('label') // Criando label (para o valor)
+  // Looping through all remove Button and listening to click event.
 
-    var $check = document.createElement('input') // Criando input (checkbox)
-    $check.setAttribute('type', 'checkbox')
+  const removeBtn = Array.from(document.querySelectorAll('[data-js="removeBtn"]'))
+  removeBtn.forEach(function(removeBtn) {
+      removeBtn.addEventListener('click', function() {
+        removeBtn.parentNode.remove()
+    })
+  });
 
-    var $removeButton = document.createElement('button') // criando botão
-    var $removeContent = document.createTextNode('x') // criando nó de texto
-    $removeButton.setAttribute('data-js', 'removeButton') // atributo p botão delete
-    $removeButton.appendChild($removeContent) // colocando o x no botão
-
-    var $inputValue = $input.value; // pegando valor do input
-    var $inputContent = document.createTextNode($inputValue); // criando nó de texto c esse valor
-
-    $list.appendChild($listItem)
-    $listItem.appendChild($check)
-    $listItem.appendChild($label)
-    $label.appendChild($inputContent)
-    $listItem.appendChild($removeButton)
-
-
-    $removeButton.addEventListener('click', removeElement)
-    $input.value = '';
-
-
-  };
-
-  function removeElement() {
-    $list.removeChild(this.parentNode);
-  };
+}
